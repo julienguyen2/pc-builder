@@ -7,7 +7,7 @@ Another challenge was the user interface (UI). Balancing between displaying the 
 
 Here are a few features I'd love to add:
 - Improvement in overall design of the PC Part Builder App, especially the Component Input Form
-- Dynamically displaying the total cost as the user continues to add to the PC Part Builder
+- Dynamically displaying the total cost as the user continues to add to the PC Part Builder.
 - Adding a button that allows to user to add additional components, further increasing personal customization.
 
 Overall, this project has been an amazing learning experience. I plan to continue working on it and making it become one of my key projects on my resume.
