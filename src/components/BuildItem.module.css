@@ -1,0 +1,33 @@
+.build {
+  max-width: 50rem;
+  margin: 2rem auto;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.actions a,
+.actions button {
+  padding: 0.25rem 1rem;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.actions button {
+  background-color: var(--color-primary-800);
+  border: none;
+  color: var(--color-gray-200);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.costDisplay {
+    font-weight: bold;
+    font-size: 10rem;
+}

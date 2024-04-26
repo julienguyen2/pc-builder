@@ -25,8 +25,10 @@ export async function buildLoader() {
     throw json({ message: "Could not fetch builds." }, { status: 500 });
   } else {
     const data = await response.json();
-    const buildsArray = Object.values(data.builds || {});
+    const buildsArray = Object.keys(data || {}).map((key) => ({
+      id: key,
+      ...data[key],
+    }));
     return { builds: buildsArray };
   }
 }
-

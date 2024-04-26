@@ -1,83 +1,73 @@
-import { useState } from "react";
-import { Form } from "react-router-dom";
+import {
+  Form,
+  useNavigate,
+  useNavigation,
+  json,
+  redirect,
+} from "react-router-dom";
 import classes from "./BuildForm.module.css";
 
-function BuildForm() {
-  const [formState, setFormState] = useState({
-    gpuComponent: { name: "", price: 0, link: "" },
-    cpuComponent: { name: "", price: 0, link: "" },
-    caseComponent: { name: "", price: 0, link: "" },
-    mbComponent: { name: "", price: 0, link: "" },
-    psComponent: { name: "", price: 0, link: "" },
-    ramComponent: { name: "", price: 0, link: "" },
-    storageComponent: { name: "", price: 0, link: "" },
-  });
+function BuildForm({ method, build }) {
+  const navigate = useNavigate();
+  const navigation = useNavigation();
 
-  const labels = {
-    gpuComponent: "Graphics Processing Unit",
-    cpuComponent: "Central Processing Unit",
-    caseComponent: "Case",
-    mbComponent: "Motherboard",
-    psComponent: "Power Supply",
-    ramComponent: "RAM Memory",
-    storageComponent: "Storage (SSD/HDD)",
-  };
+  const isSubmitting = navigation.state === "submitting";
 
-  const fieldLabels = {
-    name: "Component Name",
-    price: "Component Price",
-    link: "Component Link",
-  };
-
-  const handleChange = (e, component) => {
-    const value =
-      e.target.name === "price" ? parseFloat(e.target.value) : e.target.value;
-    setFormState({
-      ...formState,
-      [component]: { ...formState[component], [e.target.name]: value },
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const response = await fetch(
-      "https://pc-builds-c4847-default-rtdb.firebaseio.com/builds.json",
-      {
-        method: "POST",
-        body: JSON.stringify(formState),
-      }
-    );
-    if (response.ok) {
-      alert("Data saved successfully!");
-    } else {
-      alert("Error saving data!");
-    }
-  };
+  function cancelHandler() {
+    navigate("..");
+  }
 
   return (
-    <Form onSubmit={handleSubmit} className={classes.form}>
-      {Object.keys(formState).map((component) => (
-        <div key={component}>
-          <h2>{labels[component]}</h2>
-          {Object.keys(formState[component]).map((field) => (
-            <p key={field}>
-              <label htmlFor={`${component}-${field}`}>
-                {fieldLabels[field]}
-              </label>
-              <input
-                id={`${component}-${field}`}
-                type={field === "price" ? "number" : "text"}
-                name={field}
-                required
-                value={formState[component][field]}
-                onChange={(e) => handleChange(e, component)}
-              />
-            </p>
-          ))}
-        </div>
+    <Form method={method} className={classes.form}>
+      {[
+        "cpuComponent",
+        "gpuComponent",
+        "caseComponent",
+        "mbComponent",
+        "psComponent",
+        "ramComponent",
+        "storageComponent",
+      ].map((component) => (
+        <>
+          <p>
+            <label htmlFor={`${component}-name`}>{component} Name</label>
+            <input
+              id={`${component}-name`}
+              type="text"
+              name={`${component}-name`}
+              required
+              defaultValue={build ? build[component].name : ""}
+            />
+          </p>
+          <p>
+            <label htmlFor={`${component}-price`}>{component} Price</label>
+            <input
+              id={`${component}-price`}
+              type="number"
+              name={`${component}-price`}
+              required
+              defaultValue={build ? build[component].price : ""}
+            />
+          </p>
+          <p>
+            <label htmlFor={`${component}-link`}>{component} Link</label>
+            <input
+              id={`${component}-link`}
+              type="url"
+              name={`${component}-link`}
+              required
+              defaultValue={build ? build[component].link : ""}
+            />
+          </p>
+        </>
       ))}
       <div className={classes.actions}>
-        <button type="submit">Save</button>
+        <button type="button" onClick={cancelHandler} disabled={isSubmitting}>
+          Cancel
+        </button>
+        <button disabled={isSubmitting}>
+          {isSubmitting ? "Submitting..." : "Save"}
+        </button>
       </div>
     </Form>
   );
@@ -85,50 +75,50 @@ function BuildForm() {
 
 export default BuildForm;
 
-export async function newEventAction({ request, params }) {
+export async function newBuildAction({ request, params }) {
   const method = request.method;
 
   const data = await request.formData();
 
   const buildData = {
-    gpuComponent: {
-      name: data.get("gpuName"),
-      price: data.get("gpuPrice"),
-      link: data.get("gpuLink"),
-    },
     cpuComponent: {
-      name: data.get("cpuName"),
-      price: data.get("cpuPrice"),
-      link: data.get("cpuLink"),
+      name: data.get("cpuComponent-name"),
+      price: data.get("cpuComponent-price"),
+      link: data.get("cpuComponent-link"),
+    },
+    gpuComponent: {
+      name: data.get("gpuComponent-name"),
+      price: data.get("gpuComponent-price"),
+      link: data.get("gpuComponent-link"),
     },
     caseComponent: {
-      name: data.get("caseName"),
-      price: data.get("casePrice"),
-      link: data.get("caseLink"),
+      name: data.get("caseComponent-name"),
+      price: data.get("caseComponent-price"),
+      link: data.get("caseComponent-link"),
     },
     mbComponent: {
-      name: data.get("mbName"),
-      price: data.get("mbPrice"),
-      link: data.get("mbLink"),
+      name: data.get("mbComponent-name"),
+      price: data.get("mbComponent-price"),
+      link: data.get("mbComponent-link"),
     },
     psComponent: {
-      name: data.get("psName"),
-      price: data.get("psPrice"),
-      link: data.get("psLink"),
+      name: data.get("psComponent-name"),
+      price: data.get("psComponent-price"),
+      link: data.get("psComponent-link"),
     },
     ramComponent: {
-      name: data.get("ramName"),
-      price: data.get("ramPrice"),
-      link: data.get("ramLink"),
+      name: data.get("ramComponent-name"),
+      price: data.get("ramComponent-price"),
+      link: data.get("ramComponent-link"),
     },
     storageComponent: {
-      name: data.get("storageName"),
-      price: data.get("storagePrice"),
-      link: data.get("storageLink"),
+      name: data.get("storageComponent-name"),
+      price: data.get("storageComponent-price"),
+      link: data.get("storageComponent-link"),
     },
   };
 
-  let url = "https://pc-builds-c4847-default-rtdb.firebaseio.com/builds.json";
+  let url = "https://pc-builds-c4847-default-rtdb.firebaseio.com/builds";
 
   if (method === "PATCH") {
     const buildId = params.buildId;
@@ -136,7 +126,7 @@ export async function newEventAction({ request, params }) {
   }
 
   const response = await fetch(url, {
-    method: method === "PATCH" ? "PUT" : method, // Firebase uses PUT for updates
+    method: method,
     headers: {
       "Content-Type": "application/json",
     },

@@ -1,22 +1,18 @@
-// Import necessary libraries
 import { json, redirect, useRouteLoaderData } from "react-router-dom";
 import BuildItem from "../components/BuildItem";
 
-// Define the BuildDetailPage component
 function BuildDetailPage() {
   const data = useRouteLoaderData("build-detail");
 
   return <BuildItem build={data.build} />;
 }
-
 export default BuildDetailPage;
 
-// Define the buildDetailLoader function
 export async function buildDetailLoader({ request, params }) {
   const id = params.buildId;
 
   const response = await fetch(
-    "https://pc-builds-c4847-default-rtdb.firebaseio.com/builds/" + id + ".json"
+    `https://pc-builds-c4847-default-rtdb.firebaseio.com/builds/${id}.json`
   );
 
   if (!response.ok) {
@@ -25,25 +21,26 @@ export async function buildDetailLoader({ request, params }) {
       { status: 500 }
     );
   } else {
-    return response;
+    const data = await response.json();
+    const build = { id, ...data }
+    return { build };
   }
 }
 
-// Define the deleteBuildAction function
-export async function deleteBuildAction({ params, request }) {
+export async function deleteBuildAction({ request, params }) {
   const buildId = params.buildId;
+  const url = `https://pc-builds-c4847-default-rtdb.firebaseio.com/builds/${buildId}.json`;
 
-  const response = await fetch(
-    "https://pc-builds-c4847-default-rtdb.firebaseio.com/builds/" +
-      buildId +
-      ".json",
-    {
-      method: request.method,
-    }
-  );
+  const response = await fetch(url, {
+    method: "DELETE",
+  });
 
   if (!response.ok) {
-    throw json({ message: "Could not delete build." }, { status: 500 });
+    const errorMessage = await response.text();
+    throw json(
+      { message: `Could not delete build. Error: ${errorMessage}` },
+      { status: 500 }
+    );
   }
 
   return redirect("/builds");

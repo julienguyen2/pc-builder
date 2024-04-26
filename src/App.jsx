@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import AddBuild from "./pages/AddBuild";
-import BuildList, { buildLoader } from "./pages/SavedBuilds";
+import SavedBuilds, { buildLoader } from "./pages/SavedBuilds";
 import BuildDetailPage, {
   deleteBuildAction,
   buildDetailLoader,
@@ -9,6 +9,7 @@ import BuildDetailPage, {
 import EditBuildPage from "./pages/EditBuild";
 import RootLayout from "./pages/Root";
 import ErrorPage from "./pages/Error";
+import { newBuildAction } from "./components/BuildForm";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <BuildList />,
+            element: <SavedBuilds />,
             loader: buildLoader,
           },
           {
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
               {
                 path: "edit",
                 element: <EditBuildPage />,
+                action: newBuildAction,
               },
             ],
           },

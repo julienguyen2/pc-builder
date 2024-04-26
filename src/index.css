@@ -3,14 +3,14 @@
 }
 
 :root {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #36393f; /* Dark background similar to Discord */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,25 +18,31 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --color-gray-100: #f4f3f1;
-  --color-gray-200: #dddbd8;
-  --color-gray-300: #ccc9c6;
-  --color-gray-400: #aeaba7;
-  --color-gray-500: #8a8784;
-  --color-gray-600: #656360;
-  --color-gray-700: #4b4a47;
-  --color-gray-800: #31302e;
-  --color-gray-900: #1f1d1b;
+  /* Lightest to darkest shades of gray */
+  --color-gray-100: #eeeeee;
+  --color-gray-200: #dcdcdc;
+  --color-gray-300: #b9bbbe;
+  --color-gray-400: #8e9297;
+  --color-gray-500: #72767d;
+  --color-gray-600: #52565e;
+  --color-gray-700: #2e3338;
+  --color-gray-800: #23272a;
+  --color-gray-900: #000000; /* Darkest gray */
 
-  --color-primary-100: #fcf3e1;
-  --color-primary-200: #fceccd;
-  --color-primary-300: #fae1af;
-  --color-primary-400: #fbd997;
-  --color-primary-500: #ffd37c;
-  --color-primary-600: #f9c762;
-  --color-primary-700: #fbc14d;
-  --color-primary-800: #fab833;
-  --color-primary-900: #f6ad1b;
+  /* White and black for text */
+  --color-text-white: #ffffff;
+  --color-text-black: #000000;
+
+  /* Change primary color to Discord blue */
+  --color-primary-100: #7289da;
+  --color-primary-200: #677bc4;
+  --color-primary-300: #5b6eaa;
+  --color-primary-400: #4f6090;
+  --color-primary-500: #434373;
+  --color-primary-600: #39395f;
+  --color-primary-700: #2f2f4c;
+  --color-primary-800: #252539;
+  --color-primary-900: #1c1c2b;
 }
 
 body {
