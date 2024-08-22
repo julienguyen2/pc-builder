@@ -13,7 +13,7 @@ Here are a few features I'd love to add:
 Overall, this project has been an amazing learning experience. I plan to continue working on it and making it become one of my key projects on my resume.
 
 ## Tools & Technologies
-- Frontend: HTML, CSS, React, JSX Firebase
+- Frontend: HTML, CSS, React
 - Backend: Node.js
 - Database: Firebase
 - Version Control: Git, GitHub
