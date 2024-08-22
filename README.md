@@ -11,3 +11,10 @@ Here are a few features I'd love to add:
 - Adding a button that allows to user to add additional components, further increasing personal customization.
 
 Overall, this project has been an amazing learning experience. I plan to continue working on it and making it become one of my key projects on my resume.
+
+## Tools & Technologies
+- Frontend: HTML, CSS, React, JSX Firebase
+- Backend: Node.js
+- Database: Firebase
+- Version Control: Git, GitHub
+- Programming Environment: Visual Studio Code
