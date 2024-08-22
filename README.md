@@ -1,4 +1,15 @@
 # PC Component Builder
+### Live Demo
+Check out the live demo of [Cleo Apartments](https://tranquil-pika-dcebf1.netlify.app/).
+
+### Tools & Technologies
+- Frontend: HTML, CSS, React
+- Backend: Node.js
+- Database: Firebase
+- Version Control: Git, GitHub
+- Programming Environment: Visual Studio Code
+
+## Overview
 This project started as a way to delve deeper into React and explore my interest in PC building. 
 
 One of the biggest challenges I had to face while creating this project was ensuring compatibility between different components.  Figuring out how to effectively manage this complexity within the React framework was a puzzle I thoroughly enjoyed solving. Learning to leverage React's component structure to represent different parts and their attributes was difficult, but overall made the codebase easier to maintain and understand.
@@ -11,10 +22,3 @@ Here are a few features I'd love to add:
 - Adding a button that allows to user to add additional components, further increasing personal customization.
 
 Overall, this project has been an amazing learning experience. I plan to continue working on it and making it become one of my key projects on my resume.
-
-## Tools & Technologies
-- Frontend: HTML, CSS, React
-- Backend: Node.js
-- Database: Firebase
-- Version Control: Git, GitHub
-- Programming Environment: Visual Studio Code
