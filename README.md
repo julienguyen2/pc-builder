@@ -1,4 +1,4 @@
-# PC Builder Project
+# PC Component Builder
 This project started as a way to delve deeper into React and explore my interest in PC building. 
 
 One of the biggest challenges I had to face while creating this project was ensuring compatibility between different components.  Figuring out how to effectively manage this complexity within the React framework was a puzzle I thoroughly enjoyed solving. Learning to leverage React's component structure to represent different parts and their attributes was difficult, but overall made the codebase easier to maintain and understand.
