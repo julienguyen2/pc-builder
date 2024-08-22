@@ -1,8 +1,8 @@
 # PC Component Builder
-### Live Demo
+## Live Demo
 Check out the live demo of [Cleo Apartments](https://tranquil-pika-dcebf1.netlify.app/).
 
-### Tools & Technologies
+## Tools & Technologies
 - Frontend: HTML, CSS, React
 - Backend: Node.js
 - Database: Firebase
