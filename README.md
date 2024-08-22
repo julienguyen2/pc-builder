@@ -1,6 +1,6 @@
 # PC Component Builder
 ## Live Demo
-Check out the live demo of [Cleo Apartments](https://tranquil-pika-dcebf1.netlify.app/).
+Check out the live demo of [PC Component Builder](https://regal-shortbread-335f37.netlify.app/).
 
 ## Tools & Technologies
 - Frontend: HTML, CSS, React
