@@ -3,11 +3,11 @@
 Check out the live demo of [PC Component Builder](https://regal-shortbread-335f37.netlify.app/).
 
 ## Tools & Technologies
-- Frontend: HTML, CSS, React
-- Backend: Node.js
-- Database: Firebase
-- Version Control: Git, GitHub
-- Programming Environment: Visual Studio Code
+- **Frontend**: HTML, CSS, React
+- **Backend**: Node.js
+- **Database**: Firebase
+- **Version Control**: Git, GitHub
+- **Programming Environment**: Visual Studio Code
 
 ## Overview
 This project started as a way to delve deeper into React and explore my interest in PC building. 
@@ -16,7 +16,7 @@ One of the biggest challenges I had to face while creating this project was ensu
 
 Another challenge was the user interface (UI). Balancing between displaying the form and providing a user-friendly experience took quite a bit of time.
 
-Here are a few features I'd love to add:
+**Here are a few features I'd love to add:**
 - Improvement in overall design of the PC Part Builder App, especially the Component Input Form
 - Dynamically displaying the total cost as the user continues to add to the PC Part Builder.
 - Adding a button that allows to user to add additional components, further increasing personal customization.
